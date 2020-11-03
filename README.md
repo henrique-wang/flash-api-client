@@ -7,3 +7,5 @@ There are two modes which you can choose:
 - APPLICATION MODE: identifies object from the picture taken from your webcam
 
 Define which mode do you want to run at main.py using the variable MODE.
+
+OBS: MUST have app2.py server running
