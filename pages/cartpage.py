@@ -29,16 +29,16 @@ class Shopping_3(tk.Frame):
                                   command=lambda: self.cancel_shop(controller), bg='red', fg='white')
         button_cancel.place(relx=0.9, rely=0.8, anchor='se')
 
+        # Button to edit cart
+        button_edit = tk.Button(self, text="Edit Cart",
+                                  command=lambda: controller.show_frame("EditCartPage"))
+        button_edit.place(relx=0.9, rely=0.84, anchor='se')
+
     def cancel_shop(self, controller):
         cancel = messagebox.askokcancel(title=None, message="Você realmente deseja cancelar a compra?")
         if cancel == True:
             controller.show_frame("Shopping_cancel")
 
     def cart_text(self, controller):
-        text = ""
-        total_price = 0
-        for item in controller.cart:
-            text += item.__str__() + "\n"
-            total_price += float(item.getPrice())*int(item.getQuantity())
-        text += "Total Price: {}".format(total_price)
+        text = controller.cart.__str__()
         return text

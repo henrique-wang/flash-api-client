@@ -64,5 +64,5 @@ class Shopping_2(tk.Frame):
         controller.show_frame(nextPage)
 
     def return_videopage(self, controller):
-        controller.cart = []
+        controller.cart = None
         self.next_page("Shopping_1", controller)

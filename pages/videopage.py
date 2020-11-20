@@ -13,6 +13,7 @@ import json
 import requests
 import numpy as np
 import Item
+import Cart
 
 LARGEFONT = ("Verdana", 35)
 MEDIUMFONT = ("Verdana", 20)
@@ -119,12 +120,17 @@ class Shopping_1(tk.Frame):
             if res.ok:
                 res = res.json()
                 product_list = res["cart"]["productList"]
+                cart = Cart.Cart()
                 for item in product_list:
                     itemName = item["name"]
                     itemQty = item["quantity"]
                     itemPrice = item["itemPrice"]
                     item_cart = Item.Item(itemName, itemQty, itemPrice)
-                    controller.cart.append(item_cart)
+                    print(item_cart.__str__())
+                    cart.addItem(item_cart)
+                    print(cart.__str__())
+                controller.cart = cart
+
 
                 recog_result = res["data"]
                 controller.recog_result = cv2.UMat(np.array(recog_result, dtype=np.uint8))

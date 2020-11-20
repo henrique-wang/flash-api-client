@@ -23,4 +23,5 @@ class Shopping_4(tk.Frame):
         button_newShopping.place(relx=0.9, rely=0.8, anchor='se')
 
     def go_to_home(self, controller):
+        controller.cart = None
         controller.show_frame("HomeClient")
